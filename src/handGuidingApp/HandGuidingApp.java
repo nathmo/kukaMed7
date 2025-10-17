@@ -90,7 +90,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
 
   @Override
   public void run() {
-      //moveToInitialPosition(); // close to knee on table
+      moveToInitialPosition(); // close to the knee on table
 
       JointPosition initialPos = _robot.getCurrentJointPosition();
       ISmartServo servoMotion = _servoingCapability.createSmartServoMotion(initialPos);
