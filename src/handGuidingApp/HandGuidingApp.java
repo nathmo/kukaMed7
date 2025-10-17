@@ -41,7 +41,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   private ITaskLogger _logger;
 
   private static final double[] TRANSLATION_OF_TOOL = {0, 0, 100};
-  private static final double MASS = 0.4; // for an empty robot, light and it fall and more and it balloon
+  private static final double MASS = 0.8; // for an empty robot, light and it fall and more and it balloon
   private static final double[] CENTER_OF_MASS = {0, 0, 100};
 
   @Override
@@ -90,7 +90,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
 
   @Override
   public void run() {
-      moveToInitialPosition(); // close to knee on table
+      //moveToInitialPosition(); // close to knee on table
 
       JointPosition initialPos = _robot.getCurrentJointPosition();
       ISmartServo servoMotion = _servoingCapability.createSmartServoMotion(initialPos);
