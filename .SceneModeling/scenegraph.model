@@ -5,7 +5,7 @@
     <frameConnection xsi:type="core:StaticFrameConnection">
       <transformation/>
     </frameConnection>
-    <childObject xsi:type="core:SerialKinematics" id="_wMglsKtJEfCz-_uwlBtsbg" name="LBR_Med_7_R800_1" lastModificationTime="2025-10-17T14:09:18.406+0200" comment="Template provided by KUKA RAPI" clazz="com.kuka.med.devicemodel.LBRMed" icon="" resourceName="LBR_Med_7_R800_1" defaultChildAttachmentFrame="_wMglsqtJEfCz-_uwlBtsbg" defaultParentAttachmentFrame="_wMglsatJEfCz-_uwlBtsbg" topologyItemId="73b007fe-eb43-47bd-95c3-1d5eecded046" flangeFrame="_wMglsqtJEfCz-_uwlBtsbg">
+    <childObject xsi:type="core:SerialKinematics" id="_wMglsKtJEfCz-_uwlBtsbg" name="LBR_Med_7_R800_1" lastModificationTime="2025-10-17T14:15:13.928+0200" comment="Template provided by KUKA RAPI" clazz="com.kuka.med.devicemodel.LBRMed" icon="" resourceName="LBR_Med_7_R800_1" defaultChildAttachmentFrame="_wMglsqtJEfCz-_uwlBtsbg" defaultParentAttachmentFrame="_wMglsatJEfCz-_uwlBtsbg" topologyItemId="73b007fe-eb43-47bd-95c3-1d5eecded046" flangeFrame="_wMglsqtJEfCz-_uwlBtsbg">
       <rootFrame id="_wMglsatJEfCz-_uwlBtsbg" name="ROOT" lastModificationTime="2025-10-17T13:09:30.379+0200">
         <childFrames id="_wMglsqtJEfCz-_uwlBtsbg" name="Flange" lastModificationTime="2025-10-17T13:09:30.379+0200">
           <parentFrameConnection xsi:type="core:DynamicFrameConnection"/>
