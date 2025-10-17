@@ -34,7 +34,9 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class HandGuidingApp extends RoboticsAPIApplication {
-
+  @Inject private LBRMed lBR_Med_7_R800_1;
+  @Inject private ISceneGraph sceneGraph;
+  
   @Inject private LBR _robot;
   @Inject private IServoingCapability _servoingCapability;
 
@@ -47,6 +49,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
 
   @Override
   public void initialize() {
+      sceneGraph.clean();
       _logger = getLogger();
 
       // Create a Tool
@@ -63,7 +66,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   }
 
   private void moveToInitialPosition() {
-      _tool.move(ptp(JointPosition.ofDeg(0, 30, 0, -60, 0, 90, 0)).setJointVelocityRel(0.1));
+      _tool.move(ptp(JointPosition.ofDeg(90, 30, 0, -60, 0, 90, 0)).setJointVelocityRel(0.1)); //0, 30, 0, -60, 0, 90, 0
   }
 
   private CartesianImpedanceControlMode createLowCartHighJointStiffness() {
