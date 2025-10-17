@@ -44,7 +44,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   private ITaskLogger _logger;
 
   private static final double[] TRANSLATION_OF_TOOL = {0, 0, 100};
-  private static final double MASS = 0;
+  private static final double MASS = 0.5;
   private static final double[] CENTER_OF_MASS = {0, 0, 100};
 
   @Override
@@ -66,7 +66,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   }
 
   private void moveToInitialPosition() {
-      _tool.move(ptp(JointPosition.ofDeg(90, 30, 0, -60, 0, 90, 0)).setJointVelocityRel(0.1)); //0, 30, 0, -60, 0, 90, 0
+      _tool.move(ptp(JointPosition.ofDeg(90, 30, 0, -60, 0, 90, 0)).setJointVelocityRel(0.2)); //0, 30, 0, -60, 0, 90, 0
   }
 
   private CartesianImpedanceControlMode createLowCartHighJointStiffness() {
@@ -86,15 +86,15 @@ public class HandGuidingApp extends RoboticsAPIApplication {
 
   @Override
   public void run() {
-      moveToInitialPosition();
+      moveToInitialPosition(); // close to knee on table
 
       JointPosition initialPos = _robot.getCurrentJointPosition();
       ISmartServo servoMotion = _servoingCapability.createSmartServoMotion(initialPos);
 
       // Slow motion settings
-      servoMotion.setJointAccelerationRel(0.1);
-      servoMotion.setJointVelocityRel(0.1);
-      servoMotion.setMinimumTrajectoryExecutionTime(20e-3);
+      servoMotion.setJointAccelerationRel(0.2);
+      servoMotion.setJointVelocityRel(0.2);
+      servoMotion.setMinimumTrajectoryExecutionTime(0.001);
 
       // Validate for impedance mode
       try { servoMotion.validateForImpedanceMode(_tool); }
