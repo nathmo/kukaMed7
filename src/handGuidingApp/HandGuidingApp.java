@@ -41,7 +41,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   private ITaskLogger _logger;
 
   private static final double[] TRANSLATION_OF_TOOL = {0, 0, 100};
-  private static final double MASS = 0.5; // for an empty robot, light and it fall and more and it balloon
+  private static final double MASS = 0.4; // for an empty robot, light and it fall and more and it balloon
   private static final double[] CENTER_OF_MASS = {0, 0, 100};
 
   @Override
@@ -72,7 +72,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
     // Translation stiffness: X=0, Y=0, Z=50 (or whatever vertical stiffness you want)
     cartImp.parametrize(CartDOF.X).setStiffness(1.0);
     cartImp.parametrize(CartDOF.Y).setStiffness(1.0);
-    cartImp.parametrize(CartDOF.Z).setStiffness(1.0);
+    cartImp.parametrize(CartDOF.Z).setStiffness(1000.0);
 
     // Rotation stiffness: all free
     cartImp.parametrize(CartDOF.A).setStiffness(0.2);
@@ -83,7 +83,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
     cartImp.setNullSpaceStiffness(1000.0);
 
     // Safety limits
-    cartImp.setMaxPathDeviation(50, 50, 50, 50, 50, 50);
+    cartImp.setMaxPathDeviation(100, 100, 100, 100, 100, 100);
 
     return cartImp;
 }
