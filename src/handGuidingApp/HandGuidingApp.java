@@ -41,7 +41,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   private ITaskLogger _logger;
 
   private static final double[] TRANSLATION_OF_TOOL = {0, 0, 100};
-  private static final double MASS = 0; // for an empty robot, light and it fall and more and it balloon
+  private static final double MASS = 0.2; // for an empty robot, light and it fall and more and it balloon
   private static final double[] CENTER_OF_MASS = {0, 0, 100};
 
   @Override
