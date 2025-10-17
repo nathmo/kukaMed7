@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
 <core:World xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.kuka.com/rapi2/geometry/core" id="_wLJTwatJEfCz-_uwlBtsbg" name="World" lastModificationTime="2025-10-17T13:09:30.236+0200" defaultChildAttachmentFrame="_wLJTwKtJEfCz-_uwlBtsbg" defaultParentAttachmentFrame="_wLJTwKtJEfCz-_uwlBtsbg">
-  <rootFrame id="_wLJTwKtJEfCz-_uwlBtsbg" name="ROOT" lastModificationTime="2025-10-17T13:09:30.236+0200"/>
+  <rootFrame id="_wLJTwKtJEfCz-_uwlBtsbg" name="ROOT" lastModificationTime="2025-10-17T13:09:30.236+0200">
+    <childFrames id="a6e18c72-a8f9-4af6-a7cb-11d2aa977cce" name="Base">
+      <parentFrameConnection xsi:type="core:StaticFrameConnection">
+        <transformation alphaRad="3.141592653589793"/>
+      </parentFrameConnection>
+    </childFrames>
+  </rootFrame>
   <childObjectConnections childObjectFrame="_wMglsatJEfCz-_uwlBtsbg" parentObjectFrame="_wLJTwKtJEfCz-_uwlBtsbg">
     <frameConnection xsi:type="core:StaticFrameConnection">
       <transformation/>
