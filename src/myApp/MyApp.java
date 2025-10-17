@@ -1,4 +1,4 @@
-package simpleMouvmentAppTest;
+package myApp;
 
 import static com.kuka.roboticsAPI.motionModel.BasicMotions.ptpHome;
 
@@ -24,7 +24,7 @@ import com.kuka.device.common.JointPosition;
  * @see IRoboticsAPITaskInjectableTypes Types and Services available for Dependency Injection
  * @see RoboticsAPIApplication Application specific services available for Dependency Injection
  */
-public class SimpleMouvmentAppTest extends RoboticsAPIApplication {
+public class MyApp extends RoboticsAPIApplication {
   @Inject private LBRMed lBR_Med_7_R800_1;
   @Inject private ISceneGraph sceneGraph;
   @Inject private RoboticArm _robot;
@@ -74,4 +74,3 @@ public class SimpleMouvmentAppTest extends RoboticsAPIApplication {
     getLogger().info("Movement complete!");
   }
 }
-
