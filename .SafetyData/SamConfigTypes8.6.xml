@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SamConfigurationTypes xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AMFs>
+    <AMF Id="1" Name="E_AMF_TYPE_ALWAYS_VIOLATED" NumInstances="1" Extended="false">
+      <Parameters />
+    </AMF>
+    <AMF Id="2" Name="E_AMF_TYPE_CONTROL_PANEL_ENABLE" NumInstances="1" Extended="false">
+      <Parameters>
+        <Parameter Id="3" VarName="enableInputSignal1" Type="EIOInput" />
+        <Parameter Id="4" VarName="panicInputSignal1" Type="EIOInput" />
+        <Parameter Id="5" VarName="enableInputSignal2" Type="EIOInput" />
+        <Parameter Id="6" VarName="panicInputSignal2" Type="EIOInput" />
+        <Parameter Id="7" VarName="enableInputSignal3" Type="EIOInput" />
+        <Parameter Id="8" VarName="panicInputSignal3" Type="EIOInput" />
+      </Parameters>
+    </AMF>
+    <AMF Id="9" Name="E_AMF_TYPE_OP_MODE_TEST" NumInstances="1" Extended="false">
+      <Parameters />
+    </AMF>
+    <AMF Id="10" Name="E_AMF_TYPE_OP_MODE_AUT_OR_EXT" NumInstances="1" Extended="false">
+      <Parameters />
+    </AMF>
+    <AMF Id="11" Name="E_AMF_TYPE_OP_MODE_T1_OR_KRF" NumInstances="1" Extended="false">
+      <Parameters />
+    </AMF>
+    <AMF Id="12" Name="E_AMF_TYPE_OP_MODE_HIGH_SPEED" NumInstances="1" Extended="false">
+      <Parameters />
+    </AMF>
+    <AMF Id="13" Name="E_AMF_TYPE_INPUT_SIGNAL" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="14" VarName="inputSignal" Type="EIOInput" />
+      </Parameters>
+    </AMF>
+    <AMF Id="15" Name="E_AMF_TYPE_STANDSTILL_ALL_AXES" NumInstances="100" Extended="true">
+      <Parameters>
+        <Parameter Id="16" VarName="monitoredKinematics" Type="EKinematics" />
+      </Parameters>
+      <DataDependency>E_MD_AXIS_POSITION</DataDependency>
+      <DataDependency>E_MD_AXIS_VELOCITY</DataDependency>
+    </AMF>
+    <AMF Id="17" Name="E_AMF_TYPE_MOTION_ENABLE" NumInstances="1" Extended="false">
+      <Parameters />
+    </AMF>
+    <AMF Id="18" Name="E_AMF_TYPE_AXIS_TORQUE" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="19" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="20" VarName="monitoredAxis" Type="EAxisIdentifier" />
+        <Parameter Id="21" VarName="lowerLimit" Type="INT" Unit="Nm" />
+        <Parameter Id="22" VarName="upperLimit" Type="INT" Unit="Nm" />
+      </Parameters>
+      <DataDependency>E_MD_AXIS_TORQUE</DataDependency>
+    </AMF>
+    <AMF Id="23" Name="E_AMF_TYPE_AXIS_VELOCITY" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="24" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="25" VarName="monitoredAxis" Type="EAxisIdentifier" />
+        <Parameter Id="26" VarName="maxVelocity" Type="UINT" Unit="°/s; mm/s" />
+      </Parameters>
+      <DataDependency>E_MD_AXIS_VELOCITY</DataDependency>
+    </AMF>
+    <AMF Id="27" Name="E_AMF_TYPE_POS_REFERENCE" NumInstances="4" Extended="false">
+      <Parameters>
+        <Parameter Id="28" VarName="monitoredKinematics" Type="EKinematics" />
+      </Parameters>
+      <DataDependency>E_MD_AXIS_POSITION</DataDependency>
+    </AMF>
+    <AMF Id="29" Name="E_AMF_TYPE_TORQUE_REFERENCE" NumInstances="4" Extended="false">
+      <Parameters>
+        <Parameter Id="30" VarName="monitoredKinematics" Type="EKinematics" />
+      </Parameters>
+      <DataDependency>E_MD_EXTERNAL_AXIS_TORQUE</DataDependency>
+    </AMF>
+    <AMF Id="31" Name="E_AMF_TYPE_AXIS_RANGE" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="32" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="33" VarName="monitoredAxis" Type="EAxisIdentifier" />
+        <Parameter Id="34" VarName="lowerLimit" Type="INT" Unit="°" />
+        <Parameter Id="35" VarName="upperLimit" Type="INT" Unit="°" />
+      </Parameters>
+      <DataDependency>E_MD_AXIS_POSITION</DataDependency>
+    </AMF>
+    <AMF Id="36" Name="E_AMF_TYPE_CARTESIAN_TRANSLATIONAL_VELOCITY" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="37" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="38" VarName="monitoredStructure" Type="EMonitoredStructure" />
+        <Parameter Id="39" VarName="maxCartesianTranslationalVelocity" Type="UINT" Unit="mm/s" />
+      </Parameters>
+      <DataDependency>E_MD_CART_VELOCITY</DataDependency>
+    </AMF>
+    <AMF Id="40" Name="E_AMF_TYPE_CART_WORKSPACE" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="41" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="42" VarName="monitoredStructure" Type="EMonitoredStructure" />
+        <Parameter Id="43" VarName="originX" Type="INT" Unit="mm" />
+        <Parameter Id="44" VarName="originY" Type="INT" Unit="mm" />
+        <Parameter Id="45" VarName="originZ" Type="INT" Unit="mm" />
+        <Parameter Id="46" VarName="originA" Type="UINT" Unit="°" />
+        <Parameter Id="47" VarName="originB" Type="UINT" Unit="°" />
+        <Parameter Id="48" VarName="originC" Type="UINT" Unit="°" />
+        <Parameter Id="49" VarName="length" Type="UINT" Unit="mm" />
+        <Parameter Id="50" VarName="width" Type="UINT" Unit="mm" />
+        <Parameter Id="51" VarName="height" Type="UINT" Unit="mm" />
+      </Parameters>
+      <DataDependency>E_MD_CART_POSITION</DataDependency>
+    </AMF>
+    <AMF Id="52" Name="E_AMF_TYPE_CART_PROTECTED_SPACE" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="53" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="54" VarName="monitoredStructure" Type="EMonitoredStructure" />
+        <Parameter Id="55" VarName="originX" Type="INT" Unit="mm" />
+        <Parameter Id="56" VarName="originY" Type="INT" Unit="mm" />
+        <Parameter Id="57" VarName="originZ" Type="INT" Unit="mm" />
+        <Parameter Id="58" VarName="originA" Type="UINT" Unit="°" />
+        <Parameter Id="59" VarName="originB" Type="UINT" Unit="°" />
+        <Parameter Id="60" VarName="originC" Type="UINT" Unit="°" />
+        <Parameter Id="61" VarName="length" Type="UINT" Unit="mm" />
+        <Parameter Id="62" VarName="width" Type="UINT" Unit="mm" />
+        <Parameter Id="63" VarName="height" Type="UINT" Unit="mm" />
+      </Parameters>
+      <DataDependency>E_MD_CART_POSITION</DataDependency>
+    </AMF>
+    <AMF Id="64" Name="E_AMF_TYPE_COLLISION_DETECTION" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="65" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="66" VarName="maximumExternalTorque" Type="UINT" Unit="Nm" />
+      </Parameters>
+      <DataDependency>E_MD_EXTERNAL_AXIS_TORQUE</DataDependency>
+    </AMF>
+    <AMF Id="67" Name="E_AMF_TYPE_TCP_FORCE" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="68" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="69" VarName="maximumTcpForce" Type="UINT" Unit="N" />
+      </Parameters>
+      <DataDependency>E_MD_EXTERNAL_TCP_FORCE</DataDependency>
+    </AMF>
+    <AMF Id="70" Name="E_AMF_TYPE_HAND_GUIDING_ENABLE" NumInstances="1" Extended="false">
+      <Parameters>
+        <Parameter Id="71" VarName="enableInputSignal1" Type="EIOInput" />
+        <Parameter Id="72" VarName="panicInputSignal1" Type="EIOInput" />
+        <Parameter Id="73" VarName="enableInputSignal2" Type="EIOInput" />
+        <Parameter Id="74" VarName="panicInputSignal2" Type="EIOInput" />
+        <Parameter Id="75" VarName="enableInputSignal3" Type="EIOInput" />
+        <Parameter Id="76" VarName="panicInputSignal3" Type="EIOInput" />
+      </Parameters>
+    </AMF>
+    <AMF Id="77" Name="E_AMF_TYPE_HAND_GUIDING_ENABLE_ACTIVE" NumInstances="1" Extended="false">
+      <Parameters />
+    </AMF>
+    <AMF Id="78" Name="E_AMF_TYPE_DELAY" NumInstances="100" Extended="true">
+      <Parameters>
+        <Parameter Id="79" VarName="delayTime" Type="UINT" Unit="ms" />
+      </Parameters>
+    </AMF>
+    <AMF Id="80" Name="E_AMF_TYPE_TOOL_ORIENTATION" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="81" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="82" VarName="a" Type="UINT" Unit="°" />
+        <Parameter Id="83" VarName="b" Type="UINT" Unit="°" />
+        <Parameter Id="84" VarName="c" Type="UINT" Unit="°" />
+        <Parameter Id="85" VarName="operatingAngle" Type="UINT" Unit="°" />
+      </Parameters>
+      <DataDependency>E_MD_CART_POSITION</DataDependency>
+    </AMF>
+    <AMF Id="86" Name="E_AMF_TYPE_TOOL_RELATED_VELOCITY_COMPONENT" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="87" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="88" VarName="maximumVelocity" Type="UINT" Unit="mm/s" />
+        <Parameter Id="89" VarName="monitoredVelocityComponent" Type="EMonitoredComponent" />
+      </Parameters>
+      <DataDependency>E_MD_CART_VELOCITY</DataDependency>
+    </AMF>
+    <AMF Id="90" Name="E_AMF_TYPE_BASE_RELATED_TCP_FORCE_COMPONENT" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="91" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="92" VarName="maximumForce" Type="UINT" Unit="N" />
+        <Parameter Id="93" VarName="a" Type="UINT" Unit="°" />
+        <Parameter Id="94" VarName="b" Type="UINT" Unit="°" />
+        <Parameter Id="95" VarName="c" Type="UINT" Unit="°" />
+        <Parameter Id="96" VarName="monitoredForceComponent" Type="EMonitoredComponent" />
+      </Parameters>
+      <DataDependency>E_MD_EXTERNAL_TCP_FORCE</DataDependency>
+    </AMF>
+    <AMF Id="97" Name="E_AMF_TYPE_INPUT_SIGNAL_WITH_ACKNOWLEDGEMENT" NumInstances="100" Extended="false">
+      <Parameters>
+        <Parameter Id="98" VarName="safetySignal" Type="EIOInput" />
+        <Parameter Id="99" VarName="acknowledgementSignal" Type="EIOInput" />
+      </Parameters>
+    </AMF>
+    <AMF Id="100" Name="E_AMF_TYPE_PRISM_PROTECTED_SPACE" NumInstances="10" Extended="false">
+      <Parameters>
+        <Parameter Id="101" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="102" VarName="monitoredStructure" Type="EMonitoredStructure" />
+        <Parameter Id="103" VarName="numberOfVertices" Type="UINT" Unit="" />
+        <Parameter Id="104" VarName="zBottom" Type="INT" Unit="mm" />
+        <Parameter Id="105" VarName="height" Type="UINT" Unit="mm" />
+        <Parameter Id="106" VarName="vertex1_x" Type="INT" Unit="mm" />
+        <Parameter Id="107" VarName="vertex1_y" Type="INT" Unit="mm" />
+        <Parameter Id="108" VarName="vertex2_x" Type="INT" Unit="mm" />
+        <Parameter Id="109" VarName="vertex2_y" Type="INT" Unit="mm" />
+        <Parameter Id="110" VarName="vertex3_x" Type="INT" Unit="mm" />
+        <Parameter Id="111" VarName="vertex3_y" Type="INT" Unit="mm" />
+        <Parameter Id="112" VarName="vertex4_x" Type="INT" Unit="mm" />
+        <Parameter Id="113" VarName="vertex4_y" Type="INT" Unit="mm" />
+        <Parameter Id="114" VarName="vertex5_x" Type="INT" Unit="mm" />
+        <Parameter Id="115" VarName="vertex5_y" Type="INT" Unit="mm" />
+        <Parameter Id="116" VarName="vertex6_x" Type="INT" Unit="mm" />
+        <Parameter Id="117" VarName="vertex6_y" Type="INT" Unit="mm" />
+        <Parameter Id="118" VarName="vertex7_x" Type="INT" Unit="mm" />
+        <Parameter Id="119" VarName="vertex7_y" Type="INT" Unit="mm" />
+        <Parameter Id="120" VarName="vertex8_x" Type="INT" Unit="mm" />
+        <Parameter Id="121" VarName="vertex8_y" Type="INT" Unit="mm" />
+        <Parameter Id="122" VarName="vertex9_x" Type="INT" Unit="mm" />
+        <Parameter Id="123" VarName="vertex9_y" Type="INT" Unit="mm" />
+        <Parameter Id="124" VarName="vertex10_x" Type="INT" Unit="mm" />
+        <Parameter Id="125" VarName="vertex10_y" Type="INT" Unit="mm" />
+        <Parameter Id="126" VarName="vertex11_x" Type="INT" Unit="mm" />
+        <Parameter Id="127" VarName="vertex11_y" Type="INT" Unit="mm" />
+        <Parameter Id="128" VarName="vertex12_x" Type="INT" Unit="mm" />
+        <Parameter Id="129" VarName="vertex12_y" Type="INT" Unit="mm" />
+        <Parameter Id="130" VarName="vertex13_x" Type="INT" Unit="mm" />
+        <Parameter Id="131" VarName="vertex13_y" Type="INT" Unit="mm" />
+        <Parameter Id="132" VarName="vertex14_x" Type="INT" Unit="mm" />
+        <Parameter Id="133" VarName="vertex14_y" Type="INT" Unit="mm" />
+        <Parameter Id="134" VarName="vertex15_x" Type="INT" Unit="mm" />
+        <Parameter Id="135" VarName="vertex15_y" Type="INT" Unit="mm" />
+        <Parameter Id="136" VarName="vertex16_x" Type="INT" Unit="mm" />
+        <Parameter Id="137" VarName="vertex16_y" Type="INT" Unit="mm" />
+        <Parameter Id="138" VarName="vertex17_x" Type="INT" Unit="mm" />
+        <Parameter Id="139" VarName="vertex17_y" Type="INT" Unit="mm" />
+        <Parameter Id="140" VarName="vertex18_x" Type="INT" Unit="mm" />
+        <Parameter Id="141" VarName="vertex18_y" Type="INT" Unit="mm" />
+        <Parameter Id="142" VarName="vertex19_x" Type="INT" Unit="mm" />
+        <Parameter Id="143" VarName="vertex19_y" Type="INT" Unit="mm" />
+        <Parameter Id="144" VarName="vertex20_x" Type="INT" Unit="mm" />
+        <Parameter Id="145" VarName="vertex20_y" Type="INT" Unit="mm" />
+        <Parameter Id="146" VarName="normal1_x" Type="INT" Unit="microm" />
+        <Parameter Id="147" VarName="normal1_y" Type="INT" Unit="microm" />
+        <Parameter Id="148" VarName="normal2_x" Type="INT" Unit="microm" />
+        <Parameter Id="149" VarName="normal2_y" Type="INT" Unit="microm" />
+        <Parameter Id="150" VarName="normal3_x" Type="INT" Unit="microm" />
+        <Parameter Id="151" VarName="normal3_y" Type="INT" Unit="microm" />
+        <Parameter Id="152" VarName="normal4_x" Type="INT" Unit="microm" />
+        <Parameter Id="153" VarName="normal4_y" Type="INT" Unit="microm" />
+        <Parameter Id="154" VarName="normal5_x" Type="INT" Unit="microm" />
+        <Parameter Id="155" VarName="normal5_y" Type="INT" Unit="microm" />
+        <Parameter Id="156" VarName="normal6_x" Type="INT" Unit="microm" />
+        <Parameter Id="157" VarName="normal6_y" Type="INT" Unit="microm" />
+        <Parameter Id="158" VarName="normal7_x" Type="INT" Unit="microm" />
+        <Parameter Id="159" VarName="normal7_y" Type="INT" Unit="microm" />
+        <Parameter Id="160" VarName="normal8_x" Type="INT" Unit="microm" />
+        <Parameter Id="161" VarName="normal8_y" Type="INT" Unit="microm" />
+        <Parameter Id="162" VarName="normal9_x" Type="INT" Unit="microm" />
+        <Parameter Id="163" VarName="normal9_y" Type="INT" Unit="microm" />
+        <Parameter Id="164" VarName="normal10_x" Type="INT" Unit="microm" />
+        <Parameter Id="165" VarName="normal10_y" Type="INT" Unit="microm" />
+        <Parameter Id="166" VarName="normal11_x" Type="INT" Unit="microm" />
+        <Parameter Id="167" VarName="normal11_y" Type="INT" Unit="microm" />
+        <Parameter Id="168" VarName="normal12_x" Type="INT" Unit="microm" />
+        <Parameter Id="169" VarName="normal12_y" Type="INT" Unit="microm" />
+        <Parameter Id="170" VarName="normal13_x" Type="INT" Unit="microm" />
+        <Parameter Id="171" VarName="normal13_y" Type="INT" Unit="microm" />
+        <Parameter Id="172" VarName="normal14_x" Type="INT" Unit="microm" />
+        <Parameter Id="173" VarName="normal14_y" Type="INT" Unit="microm" />
+        <Parameter Id="174" VarName="normal15_x" Type="INT" Unit="microm" />
+        <Parameter Id="175" VarName="normal15_y" Type="INT" Unit="microm" />
+        <Parameter Id="176" VarName="normal16_x" Type="INT" Unit="microm" />
+        <Parameter Id="177" VarName="normal16_y" Type="INT" Unit="microm" />
+        <Parameter Id="178" VarName="normal17_x" Type="INT" Unit="microm" />
+        <Parameter Id="179" VarName="normal17_y" Type="INT" Unit="microm" />
+        <Parameter Id="180" VarName="normal18_x" Type="INT" Unit="microm" />
+        <Parameter Id="181" VarName="normal18_y" Type="INT" Unit="microm" />
+        <Parameter Id="182" VarName="normal19_x" Type="INT" Unit="microm" />
+        <Parameter Id="183" VarName="normal19_y" Type="INT" Unit="microm" />
+        <Parameter Id="184" VarName="normal20_x" Type="INT" Unit="microm" />
+        <Parameter Id="185" VarName="normal20_y" Type="INT" Unit="microm" />
+      </Parameters>
+      <DataDependency>E_MD_CART_POSITION</DataDependency>
+    </AMF>
+    <AMF Id="186" Name="E_AMF_TYPE_PRISM_WORKSPACE" NumInstances="10" Extended="false">
+      <Parameters>
+        <Parameter Id="187" VarName="monitoredKinematics" Type="EKinematics" />
+        <Parameter Id="188" VarName="monitoredStructure" Type="EMonitoredStructure" />
+        <Parameter Id="189" VarName="numberOfVertices" Type="UINT" Unit="" />
+        <Parameter Id="190" VarName="zBottom" Type="INT" Unit="mm" />
+        <Parameter Id="191" VarName="height" Type="UINT" Unit="mm" />
+        <Parameter Id="192" VarName="vertex1_x" Type="INT" Unit="mm" />
+        <Parameter Id="193" VarName="vertex1_y" Type="INT" Unit="mm" />
+        <Parameter Id="194" VarName="vertex2_x" Type="INT" Unit="mm" />
+        <Parameter Id="195" VarName="vertex2_y" Type="INT" Unit="mm" />
+        <Parameter Id="196" VarName="vertex3_x" Type="INT" Unit="mm" />
+        <Parameter Id="197" VarName="vertex3_y" Type="INT" Unit="mm" />
+        <Parameter Id="198" VarName="vertex4_x" Type="INT" Unit="mm" />
+        <Parameter Id="199" VarName="vertex4_y" Type="INT" Unit="mm" />
+        <Parameter Id="200" VarName="vertex5_x" Type="INT" Unit="mm" />
+        <Parameter Id="201" VarName="vertex5_y" Type="INT" Unit="mm" />
+        <Parameter Id="202" VarName="vertex6_x" Type="INT" Unit="mm" />
+        <Parameter Id="203" VarName="vertex6_y" Type="INT" Unit="mm" />
+        <Parameter Id="204" VarName="vertex7_x" Type="INT" Unit="mm" />
+        <Parameter Id="205" VarName="vertex7_y" Type="INT" Unit="mm" />
+        <Parameter Id="206" VarName="vertex8_x" Type="INT" Unit="mm" />
+        <Parameter Id="207" VarName="vertex8_y" Type="INT" Unit="mm" />
+        <Parameter Id="208" VarName="vertex9_x" Type="INT" Unit="mm" />
+        <Parameter Id="209" VarName="vertex9_y" Type="INT" Unit="mm" />
+        <Parameter Id="210" VarName="vertex10_x" Type="INT" Unit="mm" />
+        <Parameter Id="211" VarName="vertex10_y" Type="INT" Unit="mm" />
+        <Parameter Id="212" VarName="vertex11_x" Type="INT" Unit="mm" />
+        <Parameter Id="213" VarName="vertex11_y" Type="INT" Unit="mm" />
+        <Parameter Id="214" VarName="vertex12_x" Type="INT" Unit="mm" />
+        <Parameter Id="215" VarName="vertex12_y" Type="INT" Unit="mm" />
+        <Parameter Id="216" VarName="vertex13_x" Type="INT" Unit="mm" />
+        <Parameter Id="217" VarName="vertex13_y" Type="INT" Unit="mm" />
+        <Parameter Id="218" VarName="vertex14_x" Type="INT" Unit="mm" />
+        <Parameter Id="219" VarName="vertex14_y" Type="INT" Unit="mm" />
+        <Parameter Id="220" VarName="vertex15_x" Type="INT" Unit="mm" />
+        <Parameter Id="221" VarName="vertex15_y" Type="INT" Unit="mm" />
+        <Parameter Id="222" VarName="vertex16_x" Type="INT" Unit="mm" />
+        <Parameter Id="223" VarName="vertex16_y" Type="INT" Unit="mm" />
+        <Parameter Id="224" VarName="vertex17_x" Type="INT" Unit="mm" />
+        <Parameter Id="225" VarName="vertex17_y" Type="INT" Unit="mm" />
+        <Parameter Id="226" VarName="vertex18_x" Type="INT" Unit="mm" />
+        <Parameter Id="227" VarName="vertex18_y" Type="INT" Unit="mm" />
+        <Parameter Id="228" VarName="vertex19_x" Type="INT" Unit="mm" />
+        <Parameter Id="229" VarName="vertex19_y" Type="INT" Unit="mm" />
+        <Parameter Id="230" VarName="vertex20_x" Type="INT" Unit="mm" />
+        <Parameter Id="231" VarName="vertex20_y" Type="INT" Unit="mm" />
+        <Parameter Id="232" VarName="normal1_x" Type="INT" Unit="microm" />
+        <Parameter Id="233" VarName="normal1_y" Type="INT" Unit="microm" />
+        <Parameter Id="234" VarName="normal2_x" Type="INT" Unit="microm" />
+        <Parameter Id="235" VarName="normal2_y" Type="INT" Unit="microm" />
+        <Parameter Id="236" VarName="normal3_x" Type="INT" Unit="microm" />
+        <Parameter Id="237" VarName="normal3_y" Type="INT" Unit="microm" />
+        <Parameter Id="238" VarName="normal4_x" Type="INT" Unit="microm" />
+        <Parameter Id="239" VarName="normal4_y" Type="INT" Unit="microm" />
+        <Parameter Id="240" VarName="normal5_x" Type="INT" Unit="microm" />
+        <Parameter Id="241" VarName="normal5_y" Type="INT" Unit="microm" />
+        <Parameter Id="242" VarName="normal6_x" Type="INT" Unit="microm" />
+        <Parameter Id="243" VarName="normal6_y" Type="INT" Unit="microm" />
+        <Parameter Id="244" VarName="normal7_x" Type="INT" Unit="microm" />
+        <Parameter Id="245" VarName="normal7_y" Type="INT" Unit="microm" />
+        <Parameter Id="246" VarName="normal8_x" Type="INT" Unit="microm" />
+        <Parameter Id="247" VarName="normal8_y" Type="INT" Unit="microm" />
+        <Parameter Id="248" VarName="normal9_x" Type="INT" Unit="microm" />
+        <Parameter Id="249" VarName="normal9_y" Type="INT" Unit="microm" />
+        <Parameter Id="250" VarName="normal10_x" Type="INT" Unit="microm" />
+        <Parameter Id="251" VarName="normal10_y" Type="INT" Unit="microm" />
+        <Parameter Id="252" VarName="normal11_x" Type="INT" Unit="microm" />
+        <Parameter Id="253" VarName="normal11_y" Type="INT" Unit="microm" />
+        <Parameter Id="254" VarName="normal12_x" Type="INT" Unit="microm" />
+        <Parameter Id="255" VarName="normal12_y" Type="INT" Unit="microm" />
+        <Parameter Id="256" VarName="normal13_x" Type="INT" Unit="microm" />
+        <Parameter Id="257" VarName="normal13_y" Type="INT" Unit="microm" />
+        <Parameter Id="258" VarName="normal14_x" Type="INT" Unit="microm" />
+        <Parameter Id="259" VarName="normal14_y" Type="INT" Unit="microm" />
+        <Parameter Id="260" VarName="normal15_x" Type="INT" Unit="microm" />
+        <Parameter Id="261" VarName="normal15_y" Type="INT" Unit="microm" />
+        <Parameter Id="262" VarName="normal16_x" Type="INT" Unit="microm" />
+        <Parameter Id="263" VarName="normal16_y" Type="INT" Unit="microm" />
+        <Parameter Id="264" VarName="normal17_x" Type="INT" Unit="microm" />
+        <Parameter Id="265" VarName="normal17_y" Type="INT" Unit="microm" />
+        <Parameter Id="266" VarName="normal18_x" Type="INT" Unit="microm" />
+        <Parameter Id="267" VarName="normal18_y" Type="INT" Unit="microm" />
+        <Parameter Id="268" VarName="normal19_x" Type="INT" Unit="microm" />
+        <Parameter Id="269" VarName="normal19_y" Type="INT" Unit="microm" />
+        <Parameter Id="270" VarName="normal20_x" Type="INT" Unit="microm" />
+        <Parameter Id="271" VarName="normal20_y" Type="INT" Unit="microm" />
+      </Parameters>
+      <DataDependency>E_MD_CART_POSITION</DataDependency>
+    </AMF>
+    <AMF Id="272" Name="E_AMF_TYPE_BRAKE_CONTROL" NumInstances="1" Extended="false">
+      <Parameters />
+    </AMF>
+  </AMFs>
+  <PSMTables>
+    <PSMTable Id="273" Name="KUKA" />
+    <PSMTable Id="274" Name="Customer" />
+  </PSMTables>
+  <PSMColumns>
+    <PSMColumn Id="275" Name="number" Type="INT" />
+    <PSMColumn Id="276" Name="enabled" Type="Bool" />
+    <PSMColumn Id="277" Name="category" Type="EPsmCategory" />
+    <PSMColumn Id="278" Name="reaction" Type="EPsmReaction" />
+    <PSMColumn Id="279" Name="outputSignal" Type="EIOOutput" />
+    <PSMColumn Id="280" Name="amf1" Type="EAmfType" />
+    <PSMColumn Id="281" Name="amf2" Type="EAmfType" />
+    <PSMColumn Id="282" Name="amf3" Type="EAmfType" />
+  </PSMColumns>
+  <ESMStates>
+    <ESMState Id="283" Name="ESM State 1" />
+    <ESMState Id="284" Name="ESM State 2" />
+    <ESMState Id="285" Name="ESM State 3" />
+    <ESMState Id="286" Name="ESM State 4" />
+    <ESMState Id="287" Name="ESM State 5" />
+    <ESMState Id="288" Name="ESM State 6" />
+    <ESMState Id="289" Name="ESM State 7" />
+    <ESMState Id="290" Name="ESM State 8" />
+    <ESMState Id="291" Name="ESM State 9" />
+    <ESMState Id="292" Name="ESM State 10" />
+  </ESMStates>
+  <ESMColumns>
+    <ESMColumn Id="293" Name="number" Type="INT" />
+    <ESMColumn Id="294" Name="enabled" Type="Bool" />
+    <ESMColumn Id="295" Name="reaction" Type="EEsmReaction" />
+    <ESMColumn Id="296" Name="amf" Type="EAmfType" />
+  </ESMColumns>
+  <ToolSelectionTables>
+    <ToolSelectionTable Id="297" Name="Tool Selection Table" />
+  </ToolSelectionTables>
+  <ToolSelectionTableColumns>
+    <ToolSelectionTableColumn Id="298" Name="number" Type="INT" />
+    <ToolSelectionTableColumn Id="299" Name="enabled" Type="Bool" />
+    <ToolSelectionTableColumn Id="300" Name="assignedKinematics" Type="EKinematics" />
+    <ToolSelectionTableColumn Id="301" Name="selectedTool" Type="INT" />
+    <ToolSelectionTableColumn Id="302" Name="activationInput" Type="EToolSelectionInput" />
+  </ToolSelectionTableColumns>
+  <GeneralParameters>
+    <Parameter Id="303" VarName="esmActive" Type="UINT" Unit="-" />
+    <Parameter Id="304" VarName="smartPadUnpluggingAllowed" Type="Bool" />
+    <Parameter Id="305" VarName="mutingAllowed" Type="Bool" />
+    <Parameter Id="306" VarName="mutingInput" Type="EIOInput" />
+    <Parameter Id="307" VarName="externalPosRefAllowed" Type="Bool" />
+    <Parameter Id="308" VarName="externalPosRefInput" Type="EIOInput" />
+    <Parameter Id="309" VarName="highestWorkpieceMass" Type="UINT" Unit="g" />
+  </GeneralParameters>
+  <CartesianReferencingParameters>
+    <Parameter Id="310" VarName="cartesianPosRefAllowed" Type="Bool" />
+    <Parameter Id="311" VarName="inputSignal" Type="EIOInput" />
+    <Parameter Id="312" VarName="inputSignalActiveLevel" Type="Bool" />
+    <Parameter Id="313" VarName="axisPosition" Type="UINT" Unit="µRad" />
+  </CartesianReferencingParameters>
+  <EnumDefinition Id="314" Name="Bool">
+    <EnumValue Id="315" Value="0" ValueName="FALSE" />
+    <EnumValue Id="316" Value="1" ValueName="TRUE" />
+  </EnumDefinition>
+  <EnumDefinition Id="317" Name="EMonitoredData">
+    <EnumValue Id="318" Value="0" ValueName="E_MD_AXIS_POSITION" />
+    <EnumValue Id="319" Value="1" ValueName="E_MD_AXIS_VELOCITY" />
+    <EnumValue Id="320" Value="2" ValueName="E_MD_CART_POSITION" />
+    <EnumValue Id="321" Value="3" ValueName="E_MD_CART_VELOCITY" />
+    <EnumValue Id="322" Value="4" ValueName="E_MD_AXIS_TORQUE" />
+    <EnumValue Id="323" Value="5" ValueName="E_MD_EXTERNAL_AXIS_TORQUE" />
+    <EnumValue Id="324" Value="6" ValueName="E_MD_EXTERNAL_TCP_FORCE" />
+  </EnumDefinition>
+  <EnumDefinition Id="325" Name="EMonitoredComponent">
+    <EnumValue Id="326" Value="0" ValueName="X_POSITIVE" />
+    <EnumValue Id="327" Value="1" ValueName="X_NEGATIVE" />
+    <EnumValue Id="328" Value="2" ValueName="Y_POSITIVE" />
+    <EnumValue Id="329" Value="3" ValueName="Y_NEGATIVE" />
+    <EnumValue Id="330" Value="4" ValueName="Z_POSITIVE" />
+    <EnumValue Id="331" Value="5" ValueName="Z_NEGATIVE" />
+  </EnumDefinition>
+  <EnumDefinition Id="332" Name="EPsmCategory">
+    <EnumValue Id="333" Value="0" ValueName="E_PSM_CATEGORY_NONE" />
+    <EnumValue Id="334" Value="1" ValueName="E_PSM_CATEGORY_OUTPUT" />
+    <EnumValue Id="335" Value="2" ValueName="E_PSM_CATEGORY_CONTROL_PANEL_ENABLE" />
+    <EnumValue Id="336" Value="3" ValueName="E_PSM_CATEGORY_EM_STOP_LOCAL" />
+    <EnumValue Id="337" Value="4" ValueName="E_PSM_CATEGORY_EM_STOP_EXTERNAL" />
+    <EnumValue Id="338" Value="5" ValueName="E_PSM_CATEGORY_OPERATOR_PROTECTION" />
+    <EnumValue Id="339" Value="6" ValueName="E_PSM_CATEGORY_SAFE_OPERATIONAL_STOP" />
+    <EnumValue Id="340" Value="7" ValueName="E_PSM_CATEGORY_COLLISION_DETECTION" />
+    <EnumValue Id="341" Value="8" ValueName="E_PSM_CATEGORY_PROTECTIVE_STOP" />
+    <EnumValue Id="342" Value="9" ValueName="E_PSM_CATEGORY_VELOCITY_MONITORING" />
+    <EnumValue Id="343" Value="10" ValueName="E_PSM_CATEGORY_WORKSPACE_MONITORING" />
+  </EnumDefinition>
+  <EnumDefinition Id="344" Name="EPsmReaction">
+    <EnumValue Id="345" Value="0" ValueName="E_PSM_REACTION_SAFESTOP_0" />
+    <EnumValue Id="346" Value="1" ValueName="E_PSM_REACTION_SAFESTOP_SOFT" />
+    <EnumValue Id="347" Value="2" ValueName="E_PSM_REACTION_SAFESTOP_1" />
+    <EnumValue Id="348" Value="3" ValueName="E_PSM_REACTION_SAFESTOP_2" />
+    <EnumValue Id="349" Value="4" ValueName="E_PSM_REACTION_BRAKE" />
+    <EnumValue Id="350" Value="5" ValueName="E_PSM_REACTION_OUTPUT" />
+  </EnumDefinition>
+  <EnumDefinition Id="351" Name="EEsmReaction">
+    <EnumValue Id="352" Value="0" ValueName="E_ESM_REACTION_SAFESTOP_0" />
+    <EnumValue Id="353" Value="1" ValueName="E_ESM_REACTION_SAFESTOP_SOFT" />
+    <EnumValue Id="354" Value="2" ValueName="E_ESM_REACTION_SAFESTOP_1" />
+    <EnumValue Id="355" Value="3" ValueName="E_ESM_REACTION_SAFESTOP_2" />
+  </EnumDefinition>
+  <EnumDefinition Id="356" Name="EAmfType">
+    <EnumValue Id="357" Value="0" ValueName="E_AMF_TYPE_ALWAYS_VIOLATED" />
+    <EnumValue Id="358" Value="1" ValueName="E_AMF_TYPE_CONTROL_PANEL_ENABLE" />
+    <EnumValue Id="359" Value="2" ValueName="E_AMF_TYPE_OP_MODE_TEST" />
+    <EnumValue Id="360" Value="3" ValueName="E_AMF_TYPE_OP_MODE_AUT_OR_EXT" />
+    <EnumValue Id="361" Value="4" ValueName="E_AMF_TYPE_OP_MODE_T1_OR_KRF" />
+    <EnumValue Id="362" Value="5" ValueName="E_AMF_TYPE_OP_MODE_HIGH_SPEED" />
+    <EnumValue Id="363" Value="6" ValueName="E_AMF_TYPE_INPUT_SIGNAL" />
+    <EnumValue Id="364" Value="7" ValueName="E_AMF_TYPE_STANDSTILL_ALL_AXES" />
+    <EnumValue Id="365" Value="8" ValueName="E_AMF_TYPE_MOTION_ENABLE" />
+    <EnumValue Id="366" Value="9" ValueName="E_AMF_TYPE_AXIS_TORQUE" />
+    <EnumValue Id="367" Value="10" ValueName="E_AMF_TYPE_AXIS_VELOCITY" />
+    <EnumValue Id="368" Value="11" ValueName="E_AMF_TYPE_POS_REFERENCE" />
+    <EnumValue Id="369" Value="12" ValueName="E_AMF_TYPE_TORQUE_REFERENCE" />
+    <EnumValue Id="370" Value="13" ValueName="E_AMF_TYPE_AXIS_RANGE" />
+    <EnumValue Id="371" Value="14" ValueName="E_AMF_TYPE_CARTESIAN_TRANSLATIONAL_VELOCITY" />
+    <EnumValue Id="372" Value="15" ValueName="E_AMF_TYPE_CART_WORKSPACE" />
+    <EnumValue Id="373" Value="16" ValueName="E_AMF_TYPE_CART_PROTECTED_SPACE" />
+    <EnumValue Id="374" Value="17" ValueName="E_AMF_TYPE_COLLISION_DETECTION" />
+    <EnumValue Id="375" Value="18" ValueName="E_AMF_TYPE_TCP_FORCE" />
+    <EnumValue Id="376" Value="19" ValueName="E_AMF_TYPE_HAND_GUIDING_ENABLE" />
+    <EnumValue Id="377" Value="20" ValueName="E_AMF_TYPE_HAND_GUIDING_ENABLE_ACTIVE" />
+    <EnumValue Id="378" Value="21" ValueName="E_AMF_TYPE_DELAY" />
+    <EnumValue Id="379" Value="22" ValueName="E_AMF_TYPE_TOOL_ORIENTATION" />
+    <EnumValue Id="380" Value="23" ValueName="E_AMF_TYPE_TOOL_RELATED_VELOCITY_COMPONENT" />
+    <EnumValue Id="381" Value="24" ValueName="E_AMF_TYPE_BASE_RELATED_TCP_FORCE_COMPONENT" />
+    <EnumValue Id="382" Value="25" ValueName="E_AMF_TYPE_INPUT_SIGNAL_WITH_ACKNOWLEDGEMENT" />
+    <EnumValue Id="383" Value="26" ValueName="E_AMF_TYPE_PRISM_PROTECTED_SPACE" />
+    <EnumValue Id="384" Value="27" ValueName="E_AMF_TYPE_PRISM_WORKSPACE" />
+    <EnumValue Id="385" Value="28" ValueName="E_AMF_TYPE_BRAKE_CONTROL" />
+  </EnumDefinition>
+  <EnumDefinition Id="386" Name="EIOInput">
+    <EnumValue Id="387" Value="0" ValueName="E_IO_INPUT_NO_INPUT" />
+    <EnumValue Id="388" Value="1" ValueName="E_IO_INPUT_CIB_SR_1" />
+    <EnumValue Id="389" Value="2" ValueName="E_IO_INPUT_CIB_SR_2" />
+    <EnumValue Id="390" Value="3" ValueName="E_IO_INPUT_CIB_SR_3" />
+    <EnumValue Id="391" Value="4" ValueName="E_IO_INPUT_CIB_SR_4" />
+    <EnumValue Id="392" Value="5" ValueName="E_IO_INPUT_CIB_SR_5" />
+    <EnumValue Id="393" Value="6" ValueName="E_IO_INPUT_CIB_SR_6" />
+    <EnumValue Id="394" Value="7" ValueName="E_IO_INPUT_CIB_SR_7" />
+    <EnumValue Id="395" Value="8" ValueName="E_IO_INPUT_CIB_JR" />
+    <EnumValue Id="396" Value="9" ValueName="E_IO_INPUT_CIB_NHS" />
+    <EnumValue Id="397" Value="10" ValueName="E_IO_INPUT_CIB_ZSE1" />
+    <EnumValue Id="398" Value="11" ValueName="E_IO_INPUT_CIB_ZSE2" />
+    <EnumValue Id="399" Value="12" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_0_0" />
+    <EnumValue Id="400" Value="13" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_0_1" />
+    <EnumValue Id="401" Value="14" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_0_2" />
+    <EnumValue Id="402" Value="15" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_0_3" />
+    <EnumValue Id="403" Value="16" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_0_4" />
+    <EnumValue Id="404" Value="17" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_0_5" />
+    <EnumValue Id="405" Value="18" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_0_6" />
+    <EnumValue Id="406" Value="19" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_0_7" />
+    <EnumValue Id="407" Value="20" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_1_0" />
+    <EnumValue Id="408" Value="21" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_1_1" />
+    <EnumValue Id="409" Value="22" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_1_2" />
+    <EnumValue Id="410" Value="23" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_1_3" />
+    <EnumValue Id="411" Value="24" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_1_4" />
+    <EnumValue Id="412" Value="25" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_1_5" />
+    <EnumValue Id="413" Value="26" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_1_6" />
+    <EnumValue Id="414" Value="27" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_1_7" />
+    <EnumValue Id="415" Value="28" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_2_0" />
+    <EnumValue Id="416" Value="29" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_2_1" />
+    <EnumValue Id="417" Value="30" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_2_2" />
+    <EnumValue Id="418" Value="31" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_2_3" />
+    <EnumValue Id="419" Value="32" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_2_4" />
+    <EnumValue Id="420" Value="33" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_2_5" />
+    <EnumValue Id="421" Value="34" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_2_6" />
+    <EnumValue Id="422" Value="35" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_2_7" />
+    <EnumValue Id="423" Value="36" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_3_0" />
+    <EnumValue Id="424" Value="37" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_3_1" />
+    <EnumValue Id="425" Value="38" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_3_2" />
+    <EnumValue Id="426" Value="39" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_3_3" />
+    <EnumValue Id="427" Value="40" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_3_4" />
+    <EnumValue Id="428" Value="41" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_3_5" />
+    <EnumValue Id="429" Value="42" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_3_6" />
+    <EnumValue Id="430" Value="43" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_3_7" />
+    <EnumValue Id="431" Value="44" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_4_0" />
+    <EnumValue Id="432" Value="45" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_4_1" />
+    <EnumValue Id="433" Value="46" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_4_2" />
+    <EnumValue Id="434" Value="47" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_4_3" />
+    <EnumValue Id="435" Value="48" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_4_4" />
+    <EnumValue Id="436" Value="49" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_4_5" />
+    <EnumValue Id="437" Value="50" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_4_6" />
+    <EnumValue Id="438" Value="51" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_4_7" />
+    <EnumValue Id="439" Value="52" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_5_0" />
+    <EnumValue Id="440" Value="53" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_5_1" />
+    <EnumValue Id="441" Value="54" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_5_2" />
+    <EnumValue Id="442" Value="55" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_5_3" />
+    <EnumValue Id="443" Value="56" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_5_4" />
+    <EnumValue Id="444" Value="57" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_5_5" />
+    <EnumValue Id="445" Value="58" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_5_6" />
+    <EnumValue Id="446" Value="59" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_5_7" />
+    <EnumValue Id="447" Value="60" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_6_0" />
+    <EnumValue Id="448" Value="61" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_6_1" />
+    <EnumValue Id="449" Value="62" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_6_2" />
+    <EnumValue Id="450" Value="63" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_6_3" />
+    <EnumValue Id="451" Value="64" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_6_4" />
+    <EnumValue Id="452" Value="65" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_6_5" />
+    <EnumValue Id="453" Value="66" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_6_6" />
+    <EnumValue Id="454" Value="67" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_6_7" />
+    <EnumValue Id="455" Value="68" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_7_0" />
+    <EnumValue Id="456" Value="69" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_7_1" />
+    <EnumValue Id="457" Value="70" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_7_2" />
+    <EnumValue Id="458" Value="71" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_7_3" />
+    <EnumValue Id="459" Value="72" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_7_4" />
+    <EnumValue Id="460" Value="73" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_7_5" />
+    <EnumValue Id="461" Value="74" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_7_6" />
+    <EnumValue Id="462" Value="75" ValueName="E_IO_INPUT_PROFI_SAFE_BYTE_7_7" />
+    <EnumValue Id="463" Value="76" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_0_0" />
+    <EnumValue Id="464" Value="77" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_0_1" />
+    <EnumValue Id="465" Value="78" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_0_2" />
+    <EnumValue Id="466" Value="79" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_0_3" />
+    <EnumValue Id="467" Value="80" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_0_4" />
+    <EnumValue Id="468" Value="81" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_0_5" />
+    <EnumValue Id="469" Value="82" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_0_6" />
+    <EnumValue Id="470" Value="83" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_0_7" />
+    <EnumValue Id="471" Value="84" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_1_0" />
+    <EnumValue Id="472" Value="85" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_1_1" />
+    <EnumValue Id="473" Value="86" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_1_2" />
+    <EnumValue Id="474" Value="87" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_1_3" />
+    <EnumValue Id="475" Value="88" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_1_4" />
+    <EnumValue Id="476" Value="89" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_1_5" />
+    <EnumValue Id="477" Value="90" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_1_6" />
+    <EnumValue Id="478" Value="91" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_1_7" />
+    <EnumValue Id="479" Value="92" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_2_0" />
+    <EnumValue Id="480" Value="93" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_2_1" />
+    <EnumValue Id="481" Value="94" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_2_2" />
+    <EnumValue Id="482" Value="95" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_2_3" />
+    <EnumValue Id="483" Value="96" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_2_4" />
+    <EnumValue Id="484" Value="97" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_2_5" />
+    <EnumValue Id="485" Value="98" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_2_6" />
+    <EnumValue Id="486" Value="99" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_2_7" />
+    <EnumValue Id="487" Value="100" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_3_0" />
+    <EnumValue Id="488" Value="101" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_3_1" />
+    <EnumValue Id="489" Value="102" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_3_2" />
+    <EnumValue Id="490" Value="103" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_3_3" />
+    <EnumValue Id="491" Value="104" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_3_4" />
+    <EnumValue Id="492" Value="105" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_3_5" />
+    <EnumValue Id="493" Value="106" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_3_6" />
+    <EnumValue Id="494" Value="107" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_3_7" />
+    <EnumValue Id="495" Value="108" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_4_0" />
+    <EnumValue Id="496" Value="109" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_4_1" />
+    <EnumValue Id="497" Value="110" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_4_2" />
+    <EnumValue Id="498" Value="111" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_4_3" />
+    <EnumValue Id="499" Value="112" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_4_4" />
+    <EnumValue Id="500" Value="113" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_4_5" />
+    <EnumValue Id="501" Value="114" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_4_6" />
+    <EnumValue Id="502" Value="115" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_4_7" />
+    <EnumValue Id="503" Value="116" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_5_0" />
+    <EnumValue Id="504" Value="117" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_5_1" />
+    <EnumValue Id="505" Value="118" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_5_2" />
+    <EnumValue Id="506" Value="119" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_5_3" />
+    <EnumValue Id="507" Value="120" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_5_4" />
+    <EnumValue Id="508" Value="121" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_5_5" />
+    <EnumValue Id="509" Value="122" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_5_6" />
+    <EnumValue Id="510" Value="123" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_5_7" />
+    <EnumValue Id="511" Value="124" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_6_0" />
+    <EnumValue Id="512" Value="125" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_6_1" />
+    <EnumValue Id="513" Value="126" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_6_2" />
+    <EnumValue Id="514" Value="127" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_6_3" />
+    <EnumValue Id="515" Value="128" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_6_4" />
+    <EnumValue Id="516" Value="129" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_6_5" />
+    <EnumValue Id="517" Value="130" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_6_6" />
+    <EnumValue Id="518" Value="131" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_6_7" />
+    <EnumValue Id="519" Value="132" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_7_0" />
+    <EnumValue Id="520" Value="133" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_7_1" />
+    <EnumValue Id="521" Value="134" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_7_2" />
+    <EnumValue Id="522" Value="135" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_7_3" />
+    <EnumValue Id="523" Value="136" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_7_4" />
+    <EnumValue Id="524" Value="137" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_7_5" />
+    <EnumValue Id="525" Value="138" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_7_6" />
+    <EnumValue Id="526" Value="139" ValueName="E_IO_INPUT_FSOE_MASTER_BYTE_7_7" />
+    <EnumValue Id="527" Value="140" ValueName="E_IO_INPUT_MAM_EXT_ENABLE" />
+    <EnumValue Id="528" Value="141" ValueName="E_IO_INPUT_MAM_EXT_PANIC" />
+    <EnumValue Id="529" Value="142" ValueName="E_IO_INPUT_TPC_1" />
+    <EnumValue Id="530" Value="143" ValueName="E_IO_INPUT_TPC_2" />
+    <EnumValue Id="531" Value="144" ValueName="E_IO_INPUT_SMARTPAD_ENABLE" />
+    <EnumValue Id="532" Value="145" ValueName="E_IO_INPUT_SMARTPAD_PANIC" />
+    <EnumValue Id="533" Value="146" ValueName="E_IO_INPUT_SMARTPAD_EMERGENCY_STOP" />
+  </EnumDefinition>
+  <EnumDefinition Id="534" Name="EToolSelectionInput">
+    <EnumValue Id="535" Value="0" ValueName="E_TS_NO_INPUT" />
+    <EnumValue Id="536" Value="1" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_0_0" />
+    <EnumValue Id="537" Value="2" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_0_1" />
+    <EnumValue Id="538" Value="3" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_0_2" />
+    <EnumValue Id="539" Value="4" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_0_3" />
+    <EnumValue Id="540" Value="5" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_0_4" />
+    <EnumValue Id="541" Value="6" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_0_5" />
+    <EnumValue Id="542" Value="7" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_0_6" />
+    <EnumValue Id="543" Value="8" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_0_7" />
+    <EnumValue Id="544" Value="9" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_1_0" />
+    <EnumValue Id="545" Value="10" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_1_1" />
+    <EnumValue Id="546" Value="11" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_1_2" />
+    <EnumValue Id="547" Value="12" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_1_3" />
+    <EnumValue Id="548" Value="13" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_1_4" />
+    <EnumValue Id="549" Value="14" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_1_5" />
+    <EnumValue Id="550" Value="15" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_1_6" />
+    <EnumValue Id="551" Value="16" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_1_7" />
+    <EnumValue Id="552" Value="17" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_2_0" />
+    <EnumValue Id="553" Value="18" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_2_1" />
+    <EnumValue Id="554" Value="19" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_2_2" />
+    <EnumValue Id="555" Value="20" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_2_3" />
+    <EnumValue Id="556" Value="21" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_2_4" />
+    <EnumValue Id="557" Value="22" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_2_5" />
+    <EnumValue Id="558" Value="23" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_2_6" />
+    <EnumValue Id="559" Value="24" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_2_7" />
+    <EnumValue Id="560" Value="25" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_3_0" />
+    <EnumValue Id="561" Value="26" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_3_1" />
+    <EnumValue Id="562" Value="27" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_3_2" />
+    <EnumValue Id="563" Value="28" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_3_3" />
+    <EnumValue Id="564" Value="29" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_3_4" />
+    <EnumValue Id="565" Value="30" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_3_5" />
+    <EnumValue Id="566" Value="31" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_3_6" />
+    <EnumValue Id="567" Value="32" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_3_7" />
+    <EnumValue Id="568" Value="33" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_4_0" />
+    <EnumValue Id="569" Value="34" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_4_1" />
+    <EnumValue Id="570" Value="35" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_4_2" />
+    <EnumValue Id="571" Value="36" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_4_3" />
+    <EnumValue Id="572" Value="37" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_4_4" />
+    <EnumValue Id="573" Value="38" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_4_5" />
+    <EnumValue Id="574" Value="39" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_4_6" />
+    <EnumValue Id="575" Value="40" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_4_7" />
+    <EnumValue Id="576" Value="41" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_5_0" />
+    <EnumValue Id="577" Value="42" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_5_1" />
+    <EnumValue Id="578" Value="43" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_5_2" />
+    <EnumValue Id="579" Value="44" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_5_3" />
+    <EnumValue Id="580" Value="45" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_5_4" />
+    <EnumValue Id="581" Value="46" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_5_5" />
+    <EnumValue Id="582" Value="47" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_5_6" />
+    <EnumValue Id="583" Value="48" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_5_7" />
+    <EnumValue Id="584" Value="49" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_6_0" />
+    <EnumValue Id="585" Value="50" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_6_1" />
+    <EnumValue Id="586" Value="51" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_6_2" />
+    <EnumValue Id="587" Value="52" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_6_3" />
+    <EnumValue Id="588" Value="53" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_6_4" />
+    <EnumValue Id="589" Value="54" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_6_5" />
+    <EnumValue Id="590" Value="55" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_6_6" />
+    <EnumValue Id="591" Value="56" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_6_7" />
+    <EnumValue Id="592" Value="57" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_7_0" />
+    <EnumValue Id="593" Value="58" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_7_1" />
+    <EnumValue Id="594" Value="59" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_7_2" />
+    <EnumValue Id="595" Value="60" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_7_3" />
+    <EnumValue Id="596" Value="61" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_7_4" />
+    <EnumValue Id="597" Value="62" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_7_5" />
+    <EnumValue Id="598" Value="63" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_7_6" />
+    <EnumValue Id="599" Value="64" ValueName="E_TS_INPUT_PROFI_SAFE_BYTE_7_7" />
+    <EnumValue Id="600" Value="65" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_0_0" />
+    <EnumValue Id="601" Value="66" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_0_1" />
+    <EnumValue Id="602" Value="67" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_0_2" />
+    <EnumValue Id="603" Value="68" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_0_3" />
+    <EnumValue Id="604" Value="69" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_0_4" />
+    <EnumValue Id="605" Value="70" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_0_5" />
+    <EnumValue Id="606" Value="71" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_0_6" />
+    <EnumValue Id="607" Value="72" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_0_7" />
+    <EnumValue Id="608" Value="73" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_1_0" />
+    <EnumValue Id="609" Value="74" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_1_1" />
+    <EnumValue Id="610" Value="75" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_1_2" />
+    <EnumValue Id="611" Value="76" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_1_3" />
+    <EnumValue Id="612" Value="77" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_1_4" />
+    <EnumValue Id="613" Value="78" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_1_5" />
+    <EnumValue Id="614" Value="79" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_1_6" />
+    <EnumValue Id="615" Value="80" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_1_7" />
+    <EnumValue Id="616" Value="81" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_2_0" />
+    <EnumValue Id="617" Value="82" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_2_1" />
+    <EnumValue Id="618" Value="83" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_2_2" />
+    <EnumValue Id="619" Value="84" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_2_3" />
+    <EnumValue Id="620" Value="85" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_2_4" />
+    <EnumValue Id="621" Value="86" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_2_5" />
+    <EnumValue Id="622" Value="87" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_2_6" />
+    <EnumValue Id="623" Value="88" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_2_7" />
+    <EnumValue Id="624" Value="89" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_3_0" />
+    <EnumValue Id="625" Value="90" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_3_1" />
+    <EnumValue Id="626" Value="91" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_3_2" />
+    <EnumValue Id="627" Value="92" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_3_3" />
+    <EnumValue Id="628" Value="93" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_3_4" />
+    <EnumValue Id="629" Value="94" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_3_5" />
+    <EnumValue Id="630" Value="95" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_3_6" />
+    <EnumValue Id="631" Value="96" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_3_7" />
+    <EnumValue Id="632" Value="97" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_4_0" />
+    <EnumValue Id="633" Value="98" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_4_1" />
+    <EnumValue Id="634" Value="99" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_4_2" />
+    <EnumValue Id="635" Value="100" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_4_3" />
+    <EnumValue Id="636" Value="101" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_4_4" />
+    <EnumValue Id="637" Value="102" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_4_5" />
+    <EnumValue Id="638" Value="103" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_4_6" />
+    <EnumValue Id="639" Value="104" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_4_7" />
+    <EnumValue Id="640" Value="105" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_5_0" />
+    <EnumValue Id="641" Value="106" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_5_1" />
+    <EnumValue Id="642" Value="107" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_5_2" />
+    <EnumValue Id="643" Value="108" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_5_3" />
+    <EnumValue Id="644" Value="109" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_5_4" />
+    <EnumValue Id="645" Value="110" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_5_5" />
+    <EnumValue Id="646" Value="111" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_5_6" />
+    <EnumValue Id="647" Value="112" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_5_7" />
+    <EnumValue Id="648" Value="113" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_6_0" />
+    <EnumValue Id="649" Value="114" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_6_1" />
+    <EnumValue Id="650" Value="115" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_6_2" />
+    <EnumValue Id="651" Value="116" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_6_3" />
+    <EnumValue Id="652" Value="117" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_6_4" />
+    <EnumValue Id="653" Value="118" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_6_5" />
+    <EnumValue Id="654" Value="119" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_6_6" />
+    <EnumValue Id="655" Value="120" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_6_7" />
+    <EnumValue Id="656" Value="121" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_7_0" />
+    <EnumValue Id="657" Value="122" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_7_1" />
+    <EnumValue Id="658" Value="123" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_7_2" />
+    <EnumValue Id="659" Value="124" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_7_3" />
+    <EnumValue Id="660" Value="125" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_7_4" />
+    <EnumValue Id="661" Value="126" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_7_5" />
+    <EnumValue Id="662" Value="127" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_7_6" />
+    <EnumValue Id="663" Value="128" ValueName="E_TS_INPUT_FSOE_MASTER_BYTE_7_7" />
+  </EnumDefinition>
+  <EnumDefinition Id="664" Name="EIOOutput">
+    <EnumValue Id="665" Value="0" ValueName="E_IO_OUTPUT_CIB_SR_RELAIS_12" />
+    <EnumValue Id="666" Value="1" ValueName="E_IO_OUTPUT_CIB_SR_RELAIS_13" />
+    <EnumValue Id="667" Value="2" ValueName="E_IO_OUTPUT_CIB_SR_RELAIS_14" />
+    <EnumValue Id="668" Value="3" ValueName="E_IO_OUTPUT_CIB_SR_RELAIS_15" />
+    <EnumValue Id="669" Value="4" ValueName="E_IO_OUTPUT_CIB_SR_CONTACTOR" />
+    <EnumValue Id="670" Value="5" ValueName="E_IO_OUTPUT_CIB_CONTACTOR_HS1" />
+    <EnumValue Id="671" Value="6" ValueName="E_IO_OUTPUT_CIB_CONTACTOR_HS2" />
+    <EnumValue Id="672" Value="7" ValueName="E_IO_OUTPUT_CIB_CONTACTOR_HS3" />
+    <EnumValue Id="673" Value="8" ValueName="E_IO_OUTPUT_CIB_CONTACTOR_HS4" />
+    <EnumValue Id="674" Value="9" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_0_0" />
+    <EnumValue Id="675" Value="10" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_0_1" />
+    <EnumValue Id="676" Value="11" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_0_2" />
+    <EnumValue Id="677" Value="12" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_0_3" />
+    <EnumValue Id="678" Value="13" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_0_4" />
+    <EnumValue Id="679" Value="14" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_0_5" />
+    <EnumValue Id="680" Value="15" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_0_6" />
+    <EnumValue Id="681" Value="16" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_0_7" />
+    <EnumValue Id="682" Value="17" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_1_0" />
+    <EnumValue Id="683" Value="18" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_1_1" />
+    <EnumValue Id="684" Value="19" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_1_2" />
+    <EnumValue Id="685" Value="20" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_1_3" />
+    <EnumValue Id="686" Value="21" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_1_4" />
+    <EnumValue Id="687" Value="22" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_1_5" />
+    <EnumValue Id="688" Value="23" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_1_6" />
+    <EnumValue Id="689" Value="24" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_1_7" />
+    <EnumValue Id="690" Value="25" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_2_0" />
+    <EnumValue Id="691" Value="26" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_2_1" />
+    <EnumValue Id="692" Value="27" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_2_2" />
+    <EnumValue Id="693" Value="28" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_2_3" />
+    <EnumValue Id="694" Value="29" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_2_4" />
+    <EnumValue Id="695" Value="30" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_2_5" />
+    <EnumValue Id="696" Value="31" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_2_6" />
+    <EnumValue Id="697" Value="32" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_2_7" />
+    <EnumValue Id="698" Value="33" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_3_0" />
+    <EnumValue Id="699" Value="34" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_3_1" />
+    <EnumValue Id="700" Value="35" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_3_2" />
+    <EnumValue Id="701" Value="36" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_3_3" />
+    <EnumValue Id="702" Value="37" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_3_4" />
+    <EnumValue Id="703" Value="38" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_3_5" />
+    <EnumValue Id="704" Value="39" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_3_6" />
+    <EnumValue Id="705" Value="40" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_3_7" />
+    <EnumValue Id="706" Value="41" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_4_0" />
+    <EnumValue Id="707" Value="42" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_4_1" />
+    <EnumValue Id="708" Value="43" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_4_2" />
+    <EnumValue Id="709" Value="44" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_4_3" />
+    <EnumValue Id="710" Value="45" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_4_4" />
+    <EnumValue Id="711" Value="46" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_4_5" />
+    <EnumValue Id="712" Value="47" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_4_6" />
+    <EnumValue Id="713" Value="48" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_4_7" />
+    <EnumValue Id="714" Value="49" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_5_0" />
+    <EnumValue Id="715" Value="50" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_5_1" />
+    <EnumValue Id="716" Value="51" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_5_2" />
+    <EnumValue Id="717" Value="52" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_5_3" />
+    <EnumValue Id="718" Value="53" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_5_4" />
+    <EnumValue Id="719" Value="54" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_5_5" />
+    <EnumValue Id="720" Value="55" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_5_6" />
+    <EnumValue Id="721" Value="56" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_5_7" />
+    <EnumValue Id="722" Value="57" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_6_0" />
+    <EnumValue Id="723" Value="58" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_6_1" />
+    <EnumValue Id="724" Value="59" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_6_2" />
+    <EnumValue Id="725" Value="60" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_6_3" />
+    <EnumValue Id="726" Value="61" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_6_4" />
+    <EnumValue Id="727" Value="62" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_6_5" />
+    <EnumValue Id="728" Value="63" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_6_6" />
+    <EnumValue Id="729" Value="64" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_6_7" />
+    <EnumValue Id="730" Value="65" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_7_0" />
+    <EnumValue Id="731" Value="66" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_7_1" />
+    <EnumValue Id="732" Value="67" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_7_2" />
+    <EnumValue Id="733" Value="68" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_7_3" />
+    <EnumValue Id="734" Value="69" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_7_4" />
+    <EnumValue Id="735" Value="70" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_7_5" />
+    <EnumValue Id="736" Value="71" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_7_6" />
+    <EnumValue Id="737" Value="72" ValueName="E_IO_OUTPUT_PROFI_SAFE_BYTE_7_7" />
+    <EnumValue Id="738" Value="73" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_0_0" />
+    <EnumValue Id="739" Value="74" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_0_1" />
+    <EnumValue Id="740" Value="75" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_0_2" />
+    <EnumValue Id="741" Value="76" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_0_3" />
+    <EnumValue Id="742" Value="77" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_0_4" />
+    <EnumValue Id="743" Value="78" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_0_5" />
+    <EnumValue Id="744" Value="79" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_0_6" />
+    <EnumValue Id="745" Value="80" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_0_7" />
+    <EnumValue Id="746" Value="81" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_1_0" />
+    <EnumValue Id="747" Value="82" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_1_1" />
+    <EnumValue Id="748" Value="83" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_1_2" />
+    <EnumValue Id="749" Value="84" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_1_3" />
+    <EnumValue Id="750" Value="85" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_1_4" />
+    <EnumValue Id="751" Value="86" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_1_5" />
+    <EnumValue Id="752" Value="87" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_1_6" />
+    <EnumValue Id="753" Value="88" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_1_7" />
+    <EnumValue Id="754" Value="89" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_2_0" />
+    <EnumValue Id="755" Value="90" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_2_1" />
+    <EnumValue Id="756" Value="91" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_2_2" />
+    <EnumValue Id="757" Value="92" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_2_3" />
+    <EnumValue Id="758" Value="93" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_2_4" />
+    <EnumValue Id="759" Value="94" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_2_5" />
+    <EnumValue Id="760" Value="95" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_2_6" />
+    <EnumValue Id="761" Value="96" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_2_7" />
+    <EnumValue Id="762" Value="97" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_3_0" />
+    <EnumValue Id="763" Value="98" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_3_1" />
+    <EnumValue Id="764" Value="99" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_3_2" />
+    <EnumValue Id="765" Value="100" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_3_3" />
+    <EnumValue Id="766" Value="101" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_3_4" />
+    <EnumValue Id="767" Value="102" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_3_5" />
+    <EnumValue Id="768" Value="103" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_3_6" />
+    <EnumValue Id="769" Value="104" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_3_7" />
+    <EnumValue Id="770" Value="105" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_4_0" />
+    <EnumValue Id="771" Value="106" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_4_1" />
+    <EnumValue Id="772" Value="107" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_4_2" />
+    <EnumValue Id="773" Value="108" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_4_3" />
+    <EnumValue Id="774" Value="109" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_4_4" />
+    <EnumValue Id="775" Value="110" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_4_5" />
+    <EnumValue Id="776" Value="111" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_4_6" />
+    <EnumValue Id="777" Value="112" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_4_7" />
+    <EnumValue Id="778" Value="113" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_5_0" />
+    <EnumValue Id="779" Value="114" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_5_1" />
+    <EnumValue Id="780" Value="115" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_5_2" />
+    <EnumValue Id="781" Value="116" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_5_3" />
+    <EnumValue Id="782" Value="117" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_5_4" />
+    <EnumValue Id="783" Value="118" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_5_5" />
+    <EnumValue Id="784" Value="119" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_5_6" />
+    <EnumValue Id="785" Value="120" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_5_7" />
+    <EnumValue Id="786" Value="121" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_6_0" />
+    <EnumValue Id="787" Value="122" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_6_1" />
+    <EnumValue Id="788" Value="123" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_6_2" />
+    <EnumValue Id="789" Value="124" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_6_3" />
+    <EnumValue Id="790" Value="125" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_6_4" />
+    <EnumValue Id="791" Value="126" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_6_5" />
+    <EnumValue Id="792" Value="127" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_6_6" />
+    <EnumValue Id="793" Value="128" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_6_7" />
+    <EnumValue Id="794" Value="129" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_7_0" />
+    <EnumValue Id="795" Value="130" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_7_1" />
+    <EnumValue Id="796" Value="131" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_7_2" />
+    <EnumValue Id="797" Value="132" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_7_3" />
+    <EnumValue Id="798" Value="133" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_7_4" />
+    <EnumValue Id="799" Value="134" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_7_5" />
+    <EnumValue Id="800" Value="135" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_7_6" />
+    <EnumValue Id="801" Value="136" ValueName="E_IO_OUTPUT_FSOE_MASTER_BYTE_7_7" />
+  </EnumDefinition>
+  <EnumDefinition Id="802" Name="EAxisIdentifier">
+    <EnumValue Id="803" Value="0" ValueName="E_AXIS_1" />
+    <EnumValue Id="804" Value="1" ValueName="E_AXIS_2" />
+    <EnumValue Id="805" Value="2" ValueName="E_AXIS_3" />
+    <EnumValue Id="806" Value="3" ValueName="E_AXIS_4" />
+    <EnumValue Id="807" Value="4" ValueName="E_AXIS_5" />
+    <EnumValue Id="808" Value="5" ValueName="E_AXIS_6" />
+    <EnumValue Id="809" Value="6" ValueName="E_AXIS_7" />
+    <EnumValue Id="810" Value="7" ValueName="E_AXIS_8" />
+    <EnumValue Id="811" Value="8" ValueName="E_AXIS_9" />
+    <EnumValue Id="812" Value="9" ValueName="E_AXIS_10" />
+    <EnumValue Id="813" Value="10" ValueName="E_AXIS_11" />
+    <EnumValue Id="814" Value="11" ValueName="E_AXIS_12" />
+    <EnumValue Id="815" Value="12" ValueName="E_AXIS_13" />
+    <EnumValue Id="816" Value="13" ValueName="E_AXIS_14" />
+    <EnumValue Id="817" Value="14" ValueName="E_AXIS_15" />
+    <EnumValue Id="818" Value="15" ValueName="E_AXIS_16" />
+  </EnumDefinition>
+  <EnumDefinition Id="819" Name="EMonitoredStructure">
+    <EnumValue Id="820" Value="0" ValueName="E_MONITORED_STRUCTURE_ROBOT_AND_TOOL" />
+    <EnumValue Id="821" Value="1" ValueName="E_MONITORED_STRUCTURE_ROBOT" />
+    <EnumValue Id="822" Value="2" ValueName="E_MONITORED_STRUCTURE_TOOL" />
+  </EnumDefinition>
+  <EnumDefinition Id="823" Name="EKinematics">
+    <EnumValue Id="824" Value="0" ValueName="E_KINEMATICS_1" />
+    <EnumValue Id="825" Value="1" ValueName="E_KINEMATICS_2" />
+    <EnumValue Id="826" Value="2" ValueName="E_KINEMATICS_3" />
+    <EnumValue Id="827" Value="3" ValueName="E_KINEMATICS_4" />
+  </EnumDefinition>
+</SamConfigurationTypes>
