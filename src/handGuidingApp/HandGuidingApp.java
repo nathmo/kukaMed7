@@ -22,8 +22,6 @@ import com.kuka.servoing.api.common.EServoRequestState;
 import com.kuka.servoing.api.common.IServoingCapability;
 import com.kuka.servoing.api.smartservo.ISmartServo;
 import com.kuka.servoing.api.smartservo.ISmartServoRuntime;
-import com.kuka.statistics.StatisticTimer;
-import com.kuka.statistics.StatisticTimer.OneTimeStep;
 import com.kuka.task.ITaskLogger;
 import com.kuka.threading.ThreadUtil;
 import java.util.concurrent.TimeUnit;
@@ -34,7 +32,6 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class HandGuidingApp extends RoboticsAPIApplication {
-  @Inject private LBRMed lBR_Med_7_R800_1;
   @Inject private ISceneGraph sceneGraph;
   
   @Inject private LBR _robot;
@@ -44,7 +41,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   private ITaskLogger _logger;
 
   private static final double[] TRANSLATION_OF_TOOL = {0, 0, 100};
-  private static final double MASS = 0.5;
+  private static final double MASS = 0.5; // for an empty robot, light and it fall and more and it balloon
   private static final double[] CENTER_OF_MASS = {0, 0, 100};
 
   @Override
@@ -70,19 +67,26 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   }
 
   private CartesianImpedanceControlMode createLowCartHighJointStiffness() {
-      CartesianImpedanceControlMode cartImp = new CartesianImpedanceControlMode();
+    CartesianImpedanceControlMode cartImp = new CartesianImpedanceControlMode();
 
-      // VERY LOW cartesian stiffness (so it moves easily by hand)
-      cartImp.parametrize(CartDOF.TRANSL).setStiffness(10.0);  // N/m
-      cartImp.parametrize(CartDOF.ROT).setStiffness(5.0);     // Nm/rad
+    // Translation stiffness: X=0, Y=0, Z=50 (or whatever vertical stiffness you want)
+    cartImp.parametrize(CartDOF.X).setStiffness(0.0);
+    cartImp.parametrize(CartDOF.Y).setStiffness(0.0);
+    cartImp.parametrize(CartDOF.Z).setStiffness(0.0);
 
-      // HIGH nullspace stiffness (joint stiffness)
-      cartImp.setNullSpaceStiffness(1000.0);
+    // Rotation stiffness: all free
+    cartImp.parametrize(CartDOF.A).setStiffness(0.0);
+    cartImp.parametrize(CartDOF.B).setStiffness(0.0);
+    cartImp.parametrize(CartDOF.C).setStiffness(0.0);
 
-      // Safety limits
-      cartImp.setMaxPathDeviation(50, 50, 50, 50, 50, 50);
-      return cartImp;
-  }
+    // High joint stiffness to hold position when released
+    cartImp.setNullSpaceStiffness(1000.0);
+
+    // Safety limits
+    cartImp.setMaxPathDeviation(50, 50, 50, 50, 50, 50);
+
+    return cartImp;
+}
 
   @Override
   public void run() {
