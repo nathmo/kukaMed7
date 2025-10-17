@@ -41,7 +41,7 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   private ITaskLogger _logger;
 
   private static final double[] TRANSLATION_OF_TOOL = {0, 0, 100};
-  private static final double MASS = 0.8; // for an empty robot, light and it fall and more and it balloon
+  private static final double MASS = 0.5; // for an empty robot, light and it fall and more and it balloon
   private static final double[] CENTER_OF_MASS = {0, 0, 100};
 
   @Override
@@ -70,14 +70,14 @@ public class HandGuidingApp extends RoboticsAPIApplication {
     CartesianImpedanceControlMode cartImp = new CartesianImpedanceControlMode();
 
     // Translation stiffness: X=0, Y=0, Z=50 (or whatever vertical stiffness you want)
-    cartImp.parametrize(CartDOF.X).setStiffness(0.0);
-    cartImp.parametrize(CartDOF.Y).setStiffness(0.0);
-    cartImp.parametrize(CartDOF.Z).setStiffness(0.0);
+    cartImp.parametrize(CartDOF.X).setStiffness(1.0);
+    cartImp.parametrize(CartDOF.Y).setStiffness(1.0);
+    cartImp.parametrize(CartDOF.Z).setStiffness(1.0);
 
     // Rotation stiffness: all free
-    cartImp.parametrize(CartDOF.A).setStiffness(0.0);
-    cartImp.parametrize(CartDOF.B).setStiffness(0.0);
-    cartImp.parametrize(CartDOF.C).setStiffness(0.0);
+    cartImp.parametrize(CartDOF.A).setStiffness(0.2);
+    cartImp.parametrize(CartDOF.B).setStiffness(0.2);
+    cartImp.parametrize(CartDOF.C).setStiffness(0.2);
 
     // High joint stiffness to hold position when released
     cartImp.setNullSpaceStiffness(1000.0);
