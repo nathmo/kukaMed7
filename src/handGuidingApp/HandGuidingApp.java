@@ -1,5 +1,5 @@
 package handGuidingApp;
-
+// using joint Impedance mode with home position
 
 import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import com.kuka.roboticsAPI.applicationModel.tasks.IRoboticsAPITaskInjectableTypes;
@@ -18,6 +18,7 @@ import com.kuka.roboticsAPI.applicationModel.RoboticsAPIApplication;
 import com.kuka.roboticsAPI.motionModel.controlModeModel.CartDOF;
 import com.kuka.sensitivity.LBR;
 import com.kuka.sensitivity.controlmode.CartesianImpedanceControlMode;
+import com.kuka.sensitivity.controlmode.JointImpedanceControlMode;
 import com.kuka.servoing.api.common.EServoRequestState;
 import com.kuka.servoing.api.common.IServoingCapability;
 import com.kuka.servoing.api.smartservo.ISmartServo;
@@ -40,10 +41,14 @@ public class HandGuidingApp extends RoboticsAPIApplication {
   private Tool _tool;
   private ITaskLogger _logger;
 
-  private static final double[] TRANSLATION_OF_TOOL = {0, 0, 100};
-  private static final double MASS = 0.4; // for an empty robot, light and it fall and more and it balloon
-  private static final double[] CENTER_OF_MASS = {0, 0, 100};
+  private static final double[] TRANSLATION_OF_TOOL = {0, 0, 0};
+  private static final double MASS = 0.45; // for an empty robot, light and it fall and more and it balloon
+  private static final double[] CENTER_OF_MASS = {0, 0, 0};
 
+  private void moveToInitialPosition() {
+    _tool.move(ptp(JointPosition.ofDeg(90, 30, 0, -60, 0, 90, 0)).setJointVelocityRel(0.4)); //0, 30, 0, -60, 0, 90, 0
+  }
+  
   @Override
   public void initialize() {
       sceneGraph.clean();
@@ -62,42 +67,17 @@ public class HandGuidingApp extends RoboticsAPIApplication {
       _tool.attachTo(_robot.getFlange());
   }
 
-  private void moveToInitialPosition() {
-      _tool.move(ptp(JointPosition.ofDeg(90, 30, 0, -60, 0, 90, 0)).setJointVelocityRel(0.2)); //0, 30, 0, -60, 0, 90, 0
-  }
-
-  private CartesianImpedanceControlMode createLowCartHighJointStiffness() {
-    CartesianImpedanceControlMode cartImp = new CartesianImpedanceControlMode();
-
-    // Translation stiffness: X=0, Y=0, Z=50 (or whatever vertical stiffness you want)
-    cartImp.parametrize(CartDOF.X).setStiffness(1.0);
-    cartImp.parametrize(CartDOF.Y).setStiffness(1.0);
-    cartImp.parametrize(CartDOF.Z).setStiffness(1000.0);
-
-    // Rotation stiffness: all free
-    cartImp.parametrize(CartDOF.A).setStiffness(0.2);
-    cartImp.parametrize(CartDOF.B).setStiffness(0.2);
-    cartImp.parametrize(CartDOF.C).setStiffness(0.2);
-
-    // High joint stiffness to hold position when released
-    cartImp.setNullSpaceStiffness(1000.0);
-
-    // Safety limits
-    cartImp.setMaxPathDeviation(100, 100, 100, 100, 100, 100);
-
-    return cartImp;
-}
 
   @Override
   public void run() {
-      //moveToInitialPosition(); // close to the knee on table
-
+      moveToInitialPosition(); // close to the knee on table
+      
       JointPosition initialPos = _robot.getCurrentJointPosition();
       ISmartServo servoMotion = _servoingCapability.createSmartServoMotion(initialPos);
 
       // Slow motion settings
-      servoMotion.setJointAccelerationRel(0.2);
-      servoMotion.setJointVelocityRel(0.2);
+      servoMotion.setJointAccelerationRel(0.8);
+      servoMotion.setJointVelocityRel(0.8);
       servoMotion.setMinimumTrajectoryExecutionTime(0.001);
 
       // Validate for impedance mode
@@ -107,8 +87,8 @@ public class HandGuidingApp extends RoboticsAPIApplication {
           return;
       }
 
-      // Cartesian impedance: low in Cartesian, high in joints
-      CartesianImpedanceControlMode impedance = createLowCartHighJointStiffness();
+
+      JointImpedanceControlMode impedance =new JointImpedanceControlMode(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
       _logger.info("Starting SmartServo hand-guiding mode");
       _tool.moveAsync(servoMotion.setMode(impedance));
